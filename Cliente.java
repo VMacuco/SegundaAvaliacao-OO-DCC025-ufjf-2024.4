@@ -101,7 +101,10 @@ public abstract class Cliente {
     public void Checkout(GregorianCalendar checkOut, Pagamento forma){
         if (this.reserva != null){
             this.dataCheckOut = checkOut;
-            double valor  =  forma.valorTotal(this.getDataCheckIn(), this.getDataCheckOut(), this.getReserva());
+            forma.setDataCheckIn(this.dataCheckIn);
+            forma.setDataCheckOut(checkOut);
+            forma.setReserva(reserva);
+            double valor  =  forma.valorTotal();
             this.imprimeDados();
             System.out.println("Valor total a Pagar: R$ " + valor);
             this.reserva.setValorTotal(valor);

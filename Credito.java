@@ -13,8 +13,8 @@ public class Credito extends Pagamento implements CalculaPagamento {
         System.out.println("Pagamento via Cartão de Crédito de R$ "+valor+" realizado com sucesso.");
     }
     @Override
-    public double valorTotal(GregorianCalendar checkInCliente, GregorianCalendar checkOutCliente, Reserva reserva){
-        return this.calcularValorTotal(checkInCliente, checkOutCliente, reserva);
+    public double valorTotal(){
+        return this.calcularValorTotal(this.getDataCheckIn(), this.getDataCheckOut(), this.getReserva());
     }
     @Override
     public double calcularValorTotal(GregorianCalendar checkInCliente, GregorianCalendar checkOutCliente, Reserva reserva){
@@ -52,7 +52,7 @@ public class Credito extends Pagamento implements CalculaPagamento {
                 diaDepois.add(Calendar.DAY_OF_MONTH, +1);
                 //Se sim, Calcula o valor da nova estadia, sem nenhum custo adicional, afinal o quarto está disponível
                 if (reserva.getQuarto().estaDisponivel(diaDepois, checkOutCliente))
-                    valor += (reserva.getQuarto().CalcularEstadia(checkInCliente, diaDepois));
+                    valor += (reserva.getQuarto().CalcularEstadia(checkOutCliente, diaDepois));
                 //Se não possuir disponibilidade, o cliente terá que ficar em outro quarto, e o valor será calculado separadamente
                 else 
                     System.out.println("Quarto da reserva não disponível, cliente precisará ficar em outro quarto. Valor calculado separadamente para cada reserva");

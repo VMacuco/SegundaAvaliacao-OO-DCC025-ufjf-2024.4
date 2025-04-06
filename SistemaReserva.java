@@ -54,7 +54,7 @@ public class SistemaReserva {
         System.out.println(" ");
         System.out.println(" ");
 
-        c1.Checkout(new GregorianCalendar(2025,03,06), new Pix(c1.getDataCheckIn(), new GregorianCalendar(2025,03,03), c1.getReserva()));
+        c1.Checkout(new GregorianCalendar(2025,03,06), new Pix());
         //Como chegou antes do dia marcado, o cliente pagou a estadia normal, mas teve que pagar o valor da diária do dia 03, já que o quarto estava disponível.
         //Felizmente o Hotel da 5% de desconto para pagamentos via Pix.
         c1.pagar(new Pix());
@@ -70,7 +70,7 @@ public class SistemaReserva {
         System.out.println(" ");
         
 
-        c2.Checkout(new GregorianCalendar(2025,03,11), new Credito(c2.getDataCheckIn(), new GregorianCalendar(2025,03,11), c2.getReserva()));
+        c2.Checkout(new GregorianCalendar(2025,03,11), new Credito());
         //Ele chegou atrasado para sua reserva e saiu um dia depois d dia marcado, o quarto estava disponivel, mas ele teve que pagar uma multa pelo atraso.
         //o Hotel também cobra uma taxa d 5% para pagamentos via cartão de crédito.
         c2.pagar(new Credito());
