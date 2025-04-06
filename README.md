@@ -18,3 +18,5 @@ b. Registrar/cancelar as reservas feitas pelos hóspedes.
 c. Registrar a entrada/saída dos hóspedes no hotel.
 
 d. Gerar a conta final de uma hospedagem.
+
+## O Main está no arquivo SistemaReserva.java
