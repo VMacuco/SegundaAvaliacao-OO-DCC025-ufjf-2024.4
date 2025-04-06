@@ -38,7 +38,7 @@ public abstract class Cliente {
         return email;
     }
 
-    public void setCpf(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -51,7 +51,9 @@ public abstract class Cliente {
     }
 
     public Reserva getReserva() {
-        return reserva;
+        if(reserva == null) return null;
+            
+        else return reserva;
     }
     public void setReserva(Reserva reserva) {
         if (reserva.getID() == -1)
